@@ -1,0 +1,76 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.To-dolist {
+    background-color: rgb(18, 28, 28);
+    margin: 0 auto;
+    width: 800px;
+    height: 600px;
+    text-align: center;
+    display: flex;
+    gap: 20px;
+    padding: 5px;
+}
+
+#input-task {
+    margin-top: 40px;
+    width: 200px;
+    height: 35px;
+    background-color: white;
+}
+
+button {
+    width: 100px;
+    height: 32px;
+    background-color: #8d9797;
+}
+
+#total-count {
+    font-size: 25px;
+    height: 50px;
+    display: flex;
+    color: whitesmoke;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-iteams {
+    background-color: rgb(94 76 112);
+    width: 100%;
+    height: 100%;
+}
+
+.op-list #list-item {
+    font-size: 25px;
+    font-family: fantasy;
+    height: 100%;
+    display: flex;
+    padding: 20px 20px;
+    align-items: center;
+    gap: 10px;
+    background-color: #c9c2b8;
+}
+
+.delete-btn {
+    margin-right: 25px;
+    width: 50px;
+    height: 25px;
+
+}
+
+.task-reult {
+    position: relative;
+    left: 35px;
+}
