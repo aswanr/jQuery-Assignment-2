@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     //Dynamic Task Counter:
     function counter() {
         let totaltTask = $('.incomplete,.complete').length;
@@ -7,10 +7,9 @@ $(document).ready(function () {
         let inCompleted = $('.incomplete').length;
         $('#total-count').html(`Total:${totaltTask} Completed:${completedTask} Uncompleted:${inCompleted}`);
     }
-    
+
     //Add New Tasks:
-    $('#newtask').click(function (e) {
-        e.preventDefault();
+    $('#newtask').click(function () {
         if ($('#input-task').val() === '') {
             console.log("empty");
         }
@@ -24,62 +23,53 @@ $(document).ready(function () {
         }
 
         //Delete Tasks:
-        $('.delete-btn').click(function (e) {
-            e.preventDefault();
-            $(this).parent().remove();
+    $('.delete-btn').click(function () {
+        $(this).parent().fadeOut(1000, function () {
+            $(this).remove();
             counter();
-        });
-
-        //Mark Tasks as Completed:
-        $('.complete-checkbox').change(function (e) {
-            e.preventDefault();
-            if ($(this).is(':checked')) {
-                $(this).parent().removeClass('incomplete').addClass('complete');
-                $(this).siblings('ul').toggleClass(function(){
-                    $(this).css({"background-color":"gray","text-decoration":"line-through"});
-                })
-                counter();
-            }
-            else {
-                $(this).parent().removeClass('complete').addClass('incomplete');
-                $(this).siblings('ul').stop(true, true).toggleClass(function(){
-                $(this).css({"background-color":"","text-decoration":"none"})
-                })
-                counter();
-            }
-        });
-
-        //Filter Tasks:
-        $('#Complete').click(function (e) {
-            e.preventDefault();
-            if ($('.complete').is(':checked')) {
-                $('.complete').show()
-            }
-            else {
-                $('.complete').closest('#complete').show();
-                $('.incomplete').hide();
-            }
         })
-
-        //complete
-        $('#Complete').click(function (e) {
-            e.preventDefault(); $('.complete').show();
+    });
+    //Mark Tasks as Completed:
+    $('.complete-checkbox').change(function () {
+        if ($(this).is(':checked')) {
+            $(this).parent().removeClass('incomplete').addClass('complete');
+            $(this).siblings('ul').toggleClass(function () {
+                $(this).css({ "background-color": "gray", "text-decoration": "line-through" });
+            })
+            counter();
+        }
+        else {
+            $(this).parent().removeClass('complete').addClass('incomplete');
+            $(this).siblings('ul').stop(true, true).toggleClass(function () {
+                $(this).css({ "background-color": "", "text-decoration": "none" })
+            })
+            counter();
+        }
+    });
+    //Filter Tasks:
+    $('#Complete').click(function () {
+        if ($('.complete').is(':checked')) {
+            $('.complete').show()
+        }
+        else {
+            $('.complete').closest('#complete').show();
             $('.incomplete').hide();
-        });
-
-        //incomplete
-        $('#Incomplete').click(function (e) {
-            e.preventDefault(); $('.incomplete').show();
-            $('.complete').hide();
-        });
-
-        //All
-        $('#All').click(function (e) {
-            e.preventDefault();
-            $('.incomplete').show();
-            $('.complete').show();
-
-        });
-    }
-    );
+        }
+    })
+    //complete
+    $('#Complete').click(function () {
+        $('.complete').show();
+        $('.incomplete').hide();
+    });
+    //incomplete
+    $('#Incomplete').click(function () {
+        $('.incomplete').show();
+        $('.complete').hide();
+    });
+    //All
+    $('#All').click(function () {
+        $('.incomplete').show();
+        $('.complete').show();
+    });
+    });
 });
